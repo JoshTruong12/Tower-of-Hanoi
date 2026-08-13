@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "tower-of-hanoi\\x64\\Debug\\tower.obj",
+            "outputs": [
+                "tower-of-hanoi\\x64\\Debug\\tower.cpp.obj.dt.module.json",
+                "tower-of-hanoi\\x64\\Debug\\tower.cpp.obj.dt.d.json"
+            ],
+            "requires": []
+        }
+    ]
+}
