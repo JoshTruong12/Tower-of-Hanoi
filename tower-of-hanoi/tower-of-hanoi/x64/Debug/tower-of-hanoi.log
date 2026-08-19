@@ -1,8 +1,3 @@
 ﻿  tower-of-hanoi.cpp
-  tower.cpp
-  Generating Code...
-C:\Users\josht\source\repos\tower-of-hanoi\tower-of-hanoi.cpp(16,15): error C2143: syntax error: missing ';' before '<<'
-C:\Users\josht\source\repos\tower-of-hanoi\tower-of-hanoi.cpp(16,10): error C2371: 'std::cout': redefinition; different basic types
-      C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\iostream(40,75):
-      see declaration of 'std::cout'
-  
+C:\Users\josht\source\repos\Tower-of-Hanoi\tower-of-hanoi\tower-of-hanoi.cpp(84,41): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  tower-of-hanoi.vcxproj -> C:\Users\josht\source\repos\Tower-of-Hanoi\tower-of-hanoi\x64\Debug\tower-of-hanoi.exe

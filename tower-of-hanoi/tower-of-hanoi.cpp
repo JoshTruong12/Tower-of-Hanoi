@@ -3,12 +3,18 @@
 
 #include <iostream>
 #include <vector>
+#include <iomanip>
 
 using namespace std;
 
+// global variables
+vector<int> tower[3];
+
+// functions
+void displayStacks();
+
 int main()
 {
-    vector<int> tower1, tower2, tower3;
     
     int init_size;
 
@@ -17,11 +23,13 @@ int main()
     cin >> init_size;
 
     // initialize starting tower
-    for (int i = init_size; i > 0; i--)
+    // to represent a stack, we will only access the back of the vector when performing moving operations
+    for (int i = init_size; i > 0; --i)
     {
-        tower1.push_back(i);
+        tower[0].push_back(i);
     }
 
+    displayStacks();
 
     std::cout << "Hello World!\n";
 }
@@ -62,3 +70,55 @@ int main()
         solve(numberOfDisks - 1, temporary, destination, source);
     }
 */
+
+void displayStacks()
+{
+    
+    // calculating tallest tower to determine display scaling
+    //int size1 = tower[0].size(), size2 = tower[1].size(), size3 = tower[2].size(), max = 0;
+    int tallest_size = 0;
+    for (int i = 0; i < 3; i++)
+    {
+        if (tower[i].size() > tallest_size)
+        {
+            tallest_size = tower[i].size();
+        }
+    }
+
+    // since prints start from top to bottom, use the size of each tower to determine when to start printing each one
+    cout << "--------------------" << endl;
+    for (int i = tallest_size; i > 0; i--)
+    {
+        cout << "|   ";
+        // check if tower 1 reaches the current height to print; if so print it, if not leave empty space
+        if (tower[0].size() >= i)
+        {
+            cout << setw(2) << tower[0][i-1] << "   ";
+        }
+        else
+        {
+            cout << "     ";
+        }
+        // same for tower 2
+        if (tower[1].size() >= i)
+        {
+            cout << setw(2) << tower[1][i-1] << "   ";
+        }
+        else
+        {
+            cout << "     ";
+        }
+        // same for tower 3
+        if (tower[2].size() >= i)
+        {
+            cout << setw(2) << tower[2][i-1] << "   |";
+        }
+        else
+        {
+            cout << "     |";
+        }
+        cout << endl;
+    }
+    cout << "|   " << "__   __   __   |" << endl;
+    cout << "--------------------" << endl;
+}
