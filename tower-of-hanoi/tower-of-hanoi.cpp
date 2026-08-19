@@ -9,10 +9,12 @@ using namespace std;
 
 // global variables
 vector<int> tower[3];
+int moves;
 
-// functions
+// function prototypes
 void displayStacks();
-void solve(int numberOfDisks, vector<int> source, vector<int> destination, vector<int> temporary);
+void solve(int numberOfDisks, vector<int>& source, vector<int>& destination, vector<int>& temporary);
+void moveTopDisk(vector<int>& source, vector<int>& destination);
 
 int main()
 {
@@ -34,10 +36,13 @@ int main()
     displayStacks();
 
     // game logic
-
+    moves = 0;
+    solve(init_size, tower[0], tower[2], tower[1]);
 
 
     //std::cout << "Hello World!\n";
+    std::cout << "Total number of moves: " << moves << endl;
+    std::cout << "End of program!\n";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
@@ -92,6 +97,7 @@ void displayStacks()
     }
 
     // since prints start from top to bottom, use the size of each tower to determine when to start printing each one
+    cout << "    >> Move " << moves << " <<" << endl;
     cout << "--------------------" << endl;
     for (int i = tallest_size; i > 0; i--)
     {
@@ -126,12 +132,30 @@ void displayStacks()
         cout << endl;
     }
     cout << "|   " << "__   __   __   |" << endl;
-    cout << "--------------------" << endl;
+    cout << "--------------------" << endl << endl;
 }
 
-void solve(int numberOfDisks, vector<int> source, vector<int> destination, vector<int> temporary)
+// a solution using the recursive function
+void solve(int numberOfDisks, vector<int>& source, vector<int>& destination, vector<int>& temporary)
 {
+    // base case
+    if (numberOfDisks == 1)
+    {
+        moveTopDisk(source, destination);
+        return;
+    }
 
+    // Move the top n - 1 disks out of the way and onto
+    // the temporary tower.
+    solve(numberOfDisks - 1, source, temporary, destination);
+
+    // Move the largest/base disk of the current subproblem
+    // to its final destination.
+    moveTopDisk(source, destination);
+
+    // Move the same n - 1 disks from the temporary tower
+    // onto the base disk, completing the current subproblem.
+    solve(numberOfDisks - 1, temporary, destination, source);
 }
 
 void moveTopDisk(vector<int>& source, vector<int>& destination)
@@ -142,4 +166,6 @@ void moveTopDisk(vector<int>& source, vector<int>& destination)
     int temp = source.back();
     source.pop_back();
     destination.push_back(temp);
+    moves++;
+    displayStacks();
 }
