@@ -1,0 +1,12 @@
+# Visual Studio workspace data
+.vs/
+
+# Compiled output
+Debug/
+Release/
+x64/
+x86/
+
+# User-specific settings
+*.user
+*.suo
