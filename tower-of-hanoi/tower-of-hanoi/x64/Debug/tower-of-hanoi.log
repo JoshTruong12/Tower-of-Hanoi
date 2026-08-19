@@ -1,3 +1,0 @@
-﻿  tower-of-hanoi.cpp
-C:\Users\josht\source\repos\Tower-of-Hanoi\tower-of-hanoi\tower-of-hanoi.cpp(84,41): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-  tower-of-hanoi.vcxproj -> C:\Users\josht\source\repos\Tower-of-Hanoi\tower-of-hanoi\x64\Debug\tower-of-hanoi.exe
