@@ -3,5 +3,8 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="tower-of-hanoi.vcxproj" Id="1a04cffb-98bb-452d-9301-27cc4962f0f5" />
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+  </Folder>
+  <Project Path="tower-of-hanoi.vcxproj" Id="39a2ed91-e312-4b04-bad0-4748600a1225" />
 </Solution>

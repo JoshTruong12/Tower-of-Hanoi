@@ -12,6 +12,7 @@ vector<int> tower[3];
 
 // functions
 void displayStacks();
+void solve(int numberOfDisks, vector<int> source, vector<int> destination, vector<int> temporary);
 
 int main()
 {
@@ -29,9 +30,14 @@ int main()
         tower[0].push_back(i);
     }
 
+    // display starting point
     displayStacks();
 
-    std::cout << "Hello World!\n";
+    // game logic
+
+
+
+    //std::cout << "Hello World!\n";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
@@ -121,4 +127,19 @@ void displayStacks()
     }
     cout << "|   " << "__   __   __   |" << endl;
     cout << "--------------------" << endl;
+}
+
+void solve(int numberOfDisks, vector<int> source, vector<int> destination, vector<int> temporary)
+{
+
+}
+
+void moveTopDisk(vector<int>& source, vector<int>& destination)
+{
+    if (source.empty())
+        return;
+    
+    int temp = source.back();
+    source.pop_back();
+    destination.push_back(temp);
 }
